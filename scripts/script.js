@@ -1,7 +1,11 @@
 // Define Save button
 // use image from fontawesome
 
-// Dynamically create the time blocks
+
+// Time blocks need an input field.
+// Save (Append) text to time block when save button is pressed. 
+
+
 
 // 1. Define a new time block. 
 
@@ -11,6 +15,7 @@
 
 
 // If time is future, set class to .future
+// If global time is earlier than block time, change class. 
 
 // If time is present, set class to .present
 
