@@ -10,16 +10,17 @@ var rawTime = moment().hour();
 var hour = rawTime - 12;
 console.log(hour);
 
-// Time blocks need an input field.
+// Declare variable to store tasks in array
 
-// Make an array of the textarea time ids
+var tasks = [];
 
-// var textAreaNumber = [9, 10, 11, 12, 13, 14, 15, 16, 17]; // Pull these from the html page?
+// Time blocks need an input field?
+
 
 
 // global function
 
-$('document').ready(getValues());
+$("document").ready(getValues());
 
 // pull the values
 function getValues() {
@@ -33,29 +34,33 @@ function getValues() {
     if (rawTime < idValue) {
       //   console.log(rawTime + " < " + idValue);
       $(this).addClass("future");
-      $(this).removeClass('present past');
+      $(this).removeClass("present past");
     }
     // If time is current, add present class
 
     if (rawTime == idValue) {
-        $(this).addClass('present');
-        $(this).removeClass('past future');
+      $(this).addClass("present");
+      $(this).removeClass("past future");
     }
 
     //If time is past, add past class
 
     if (rawTime > idValue) {
-        $(this).addClass('past');
-        $(this).removeClass('future present');
+      $(this).addClass("past");
+      $(this).removeClass("future present");
     }
   });
 }
-
-
 
 // Save button functions
 
 $(".saveBtn").click(function (event) {
   event.preventDefault();
-  alert("Clicked!");
+    
+  // figure out which button was clicked
+  var buttonID = $(this).parent().attr('id');
+  console.log(buttonID);
+  // add the text box to local storage
+
 });
+
