@@ -1,21 +1,61 @@
 // Define Current Day
 
-$("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+var currentDay = moment().format("MMMM Do YYYY");
+console.log(currentDay);
+$("#currentDay").text(currentDay);
 
-// Define Save button
+// Define Current Time
 
-// use image from fontawesome
-
+var rawTime = moment().hour();
+var hour = rawTime - 12;
+console.log(hour);
 
 // Time blocks need an input field.
-// Save (Append) text to time block when save button is pressed. 
 
-// If time is future, set class to .future
+// Make an array of the textarea time ids
+
+// var textAreaNumber = [9, 10, 11, 12, 13, 14, 15, 16, 17]; // Pull these from the html page?
 
 
-// If global time is earlier than block time, change class. 
+// global function
 
-// If time is present, set class to .present
+$('document').ready(getValues());
 
-// If time is past, set class to .past
+// pull the values
+function getValues() {
+  $(".time-block").each(function () {
+    var idValue = $(this).attr("id");
+    // console.log(idValue);
+    // console.log(rawTime);
 
+    // If time is in the future, add future class
+
+    if (rawTime < idValue) {
+      //   console.log(rawTime + " < " + idValue);
+      $(this).addClass("future");
+      $(this).removeClass('present past');
+    }
+    // If time is current, add present class
+
+    if (rawTime == idValue) {
+        $(this).addClass('present');
+        $(this).removeClass('past future');
+    }
+
+    //If time is past, add past class
+
+    if (rawTime > idValue) {
+        $(this).addClass('past');
+        $(this).removeClass('future present');
+    }
+  });
+}
+
+
+
+// Save button functions
+
+$(".saveBtn").click(function (event) {
+  event.preventDefault();
+  alert("Clicked!");
+});
