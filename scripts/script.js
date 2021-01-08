@@ -1,3 +1,7 @@
+// Define Current Day
+
+$("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+
 // Define Save button
 
 // use image from fontawesome
@@ -5,14 +9,6 @@
 
 // Time blocks need an input field.
 // Save (Append) text to time block when save button is pressed. 
-
-// Define current date
-
-// Define current time
-
-var currentDate = moment().calendar();
-
-console.log(currentDate);
 
 // If time is future, set class to .future
 
