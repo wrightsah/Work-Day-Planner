@@ -12,11 +12,9 @@ console.log(hour);
 
 // Declare variable to store tasks in array
 
-var tasks = [];
+var tasks = {};
 
 // Time blocks need an input field?
-
-
 
 // global function
 
@@ -55,12 +53,17 @@ function getValues() {
 // Save button functions
 
 $(".saveBtn").click(function (event) {
-  event.preventDefault();
-    
+  //   event.preventDefault();
+
   // figure out which button was clicked
-  var buttonID = $(this).parent().attr('id');
+  var buttonID = $(this).parent().attr("id");
   console.log(buttonID);
-  // add the text box to local storage
+  // select the text
+
+  var taskText = $(this).parent().children().eq(1).val();
+  console.log(taskText);
+
+  // add the text to an object with the number as the key and text content as value
+
 
 });
-
