@@ -53,7 +53,7 @@ function getValues() {
 // Save button functions
 
 $(".saveBtn").click(function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
   // figure out which button was clicked
   var buttonID = $(this).parent().attr("id");
@@ -65,18 +65,15 @@ $(".saveBtn").click(function (event) {
 
   // add the text to an object with the hour and the and text content as value?
 
-
   // console.log(task);
 
   // add to local storage
- 
+
   localStorage.setItem(buttonID, taskText);
 
   // display tasks from local storage
 
   var taskTextDisplay = localStorage.getItem(buttonID);
   console.log("The pulled task is " + taskTextDisplay);
-  $(this).parent().children().eq(1).text("Sample Text");
-
-
+  $(this).parent().children().eq(1).text(taskTextDisplay);
 });
