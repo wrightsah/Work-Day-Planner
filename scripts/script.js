@@ -12,7 +12,7 @@ console.log(hour);
 
 // Declare variable to store tasks in array
 
-var tasks = {};
+var taskArray = [];
 
 // Time blocks need an input field?
 
@@ -53,7 +53,7 @@ function getValues() {
 // Save button functions
 
 $(".saveBtn").click(function (event) {
-  //   event.preventDefault();
+    event.preventDefault();
 
   // figure out which button was clicked
   var buttonID = $(this).parent().attr("id");
@@ -63,7 +63,29 @@ $(".saveBtn").click(function (event) {
   var taskText = $(this).parent().children().eq(1).val();
   console.log(taskText);
 
-  // add the text to an object with the number as the key and text content as value
+  // add the text to an object with the hour and the and text content as value
+
+  var task = {
+    id: buttonID,
+    taskText: taskText,
+  };
+
+  // console.log(task);
+
+  // push the object to the taskArray
+
+  taskArray.push(task);
+  console.log(taskArray);
+
+  // add to local storage
+  var taskArrayString = JSON.stringify(taskArray);
+  localStorage.setItem('hourID', taskArrayString); 
+
+
+  // display tasks from local storage
+
+  
+  console.log(localStorage.getItem('hourID'));
 
 
 });
