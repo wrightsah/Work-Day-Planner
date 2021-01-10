@@ -63,29 +63,17 @@ $(".saveBtn").click(function (event) {
   var taskText = $(this).parent().children().eq(1).val();
   console.log(taskText);
 
-  // add the text to an object with the hour and the and text content as value
+  // add the text to an object with the hour and the and text content as value?
 
-  var task = {
-    id: buttonID,
-    taskText: taskText,
-  };
 
   // console.log(task);
 
-  // push the object to the taskArray
-
-  taskArray.push(task);
-  console.log(taskArray);
-
   // add to local storage
-  var taskArrayString = JSON.stringify(taskArray);
-  localStorage.setItem('hourID', taskArrayString); 
-
+ 
+  localStorage.setItem(buttonID, taskText);
 
   // display tasks from local storage
 
-  
-  console.log(localStorage.getItem('hourID'));
-
+  taskText = localStorage.getItem(buttonID);
 
 });
