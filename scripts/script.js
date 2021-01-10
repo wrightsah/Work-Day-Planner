@@ -14,6 +14,10 @@ console.log(hour);
 
 var taskArray = [];
 
+// Declare text to display
+
+var taskTextDisplay = null;
+
 // Time blocks need an input field?
 
 // global function
@@ -73,7 +77,12 @@ $(".saveBtn").click(function (event) {
 
   // display tasks from local storage
 
-  var taskTextDisplay = localStorage.getItem(buttonID);
   console.log("The pulled task is " + taskTextDisplay);
-  $(this).parent().children().eq(1).text(taskTextDisplay);
+  // $(this).parent().children().eq(1).text("taskTextDisplay");
+
+  taskTextDisplay = localStorage.getItem(buttonID);
+
+  console.log(taskTextDisplay);
+
+  $(".description").text(localStorage.getItem(buttonID));
 });
