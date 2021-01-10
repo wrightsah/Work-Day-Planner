@@ -74,6 +74,9 @@ $(".saveBtn").click(function (event) {
 
   // display tasks from local storage
 
-  taskText = localStorage.getItem(buttonID);
+  var taskTextDisplay = localStorage.getItem(buttonID);
+  console.log("The pulled task is " + taskTextDisplay);
+  $(this).parent().children().eq(1).text("Sample Text");
+
 
 });
